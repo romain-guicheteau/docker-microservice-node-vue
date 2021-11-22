@@ -1,0 +1,13 @@
+services:
+  front:
+    build: ./project_ui
+    image: project_ui:latest
+    ports: 
+      - "8080:8080"
+    environment:
+      - VUE_APP_SERVER_URL=http://backend:3000/
+  backend:
+    build: ./websocker_server
+    image: websocket-serve
+    ports:
+      - "3000:3000"
